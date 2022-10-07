@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION['user']) {
+if (isset($_SESSION['user'])) {
     header('Location: profile.php');
 }
 ?>
@@ -15,7 +15,7 @@ if ($_SESSION['user']) {
 </head>
 <body>
 
-<form class="form" action="vendor/signin.php" method="post">
+<form class="form" action="vendor/signup.php" method="post">
     <label>Логин</label>
     <input class="input" type="text" name="login" placeholder="Введите свой логин">
     <label>Пароль</label>
@@ -26,7 +26,7 @@ if ($_SESSION['user']) {
     </p>
     <p class="msg">
         <?php
-        echo $_SESSION['message'];
+        echo $_SESSION['message'] ?? '';
         unset($_SESSION['message']);
         ?>
     </p>
